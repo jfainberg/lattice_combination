@@ -9,7 +9,7 @@ To install, either run `install.sh`, providing the Kaldi root directory:
 `bash install.sh /path/to/kaldi`
 
 or follow the equivalent steps below:
-1. Place `lattice-combine-light.cc` into `src/latbin/` (`lattice-combine-light-fst.cc` is optional and only required to produce the example figure on standard FSTs)
+1. Place `lattice-combine-light.cc` into `src/latbin/`
 2. Edit `src/latbin/Makefile` and add `lattice-combine-light` to the end of the `BINFILES`.
 3. Run `make`.
 
