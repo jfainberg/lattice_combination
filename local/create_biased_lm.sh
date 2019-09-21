@@ -6,7 +6,7 @@
 
 stage=0
 lambda=0.5
-LM=train_b
+prefix=train_b
 
 echo "$0 $@"  # Print the command line for logging
 
@@ -47,16 +47,16 @@ ngram -order 1 -lm $lm \
 # Updated vocab
 tail -n +6 $data/train.adapt.${lambda}.1gm.arpa \
     | head -n -2 | sort | cut -f 2 | head -150000 | grep -v '</s>' \
-    | sort > $data/${LM}.${lambda}.150k.wlist
+    | sort > $data/${prefix}.${lambda}.150k.wlist
 
 echo "Interpolating 3 gram LMs with 150k vocab list from interpolated 1 gram LM..."
 ngram -order 3 -lm $lm \
     -mix-lm $data/adapt.3gm.kn.arpa \
     -lambda $lambda \
-    -vocab $data/${LM}.${lambda}.150k.wlist \
-    -limit-vocab -write-lm $data/${LM}.${lambda}.150k.3gm.kn.arpa.gz
+    -vocab $data/${prefix}.${lambda}.150k.wlist \
+    -limit-vocab -write-lm $data/${prefix}.${lambda}.150k.3gm.kn.arpa.gz
 
 echo "Pruning biased LM..."
-prune-lm --threshold=1e-7 $data/${LM}.${lambda}.150k.3gm.kn.arpa.gz /dev/stdout | gzip -c > $data/${LM}.${lambda}.150k.p07.3gm.kn.arpa.gz
+prune-lm --threshold=1e-7 $data/${prefix}.${lambda}.150k.3gm.kn.arpa.gz /dev/stdout | gzip -c > $data/${prefix}.${lambda}.150k.p07.3gm.kn.arpa.gz
 
 echo "Finished creating biased LM" && exit 0
