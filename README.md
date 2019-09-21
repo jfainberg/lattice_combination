@@ -2,6 +2,8 @@
 
 This repository contains code for our Interspeech 2019 paper titled "[Lattice-Based Lightly-Supervised Acoustic Model Training](https://www.isca-speech.org/archive/Interspeech_2019/pdfs/2533.pdf)". The goal is to create improved lattice supervision, and to make the best use of poor transcripts, by combining inaccurate transcripts with hypothesis lattices generated for semi-supervised training.
 
+The repository also contains a simple script to add deletion penalties (insertion rewards) to the HCLG, in `local/add_penalty_hclg.sh`.
+
 ## Installation
 This work requires a functioning install of [Kaldi](https://github.com/kaldi-asr/kaldi).
 
