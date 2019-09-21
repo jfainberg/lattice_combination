@@ -115,43 +115,6 @@ void CreateEditDistance(const fst::StdVectorFst &fst1,
   pfst->SetFinal(0, Weight::One());
   ArcSort(pfst, fst::StdOLabelCompare());
 }
-
-// From lattice-oracle.cc
-void CountErrors(const fst::StdVectorFst &fst,
-                 int32 *correct,
-                 int32 *substitutions,
-                 int32 *insertions,
-                 int32 *deletions,
-                 int32 *num_words) {
-  typedef fst::StdArc::StateId StateId;
-  typedef fst::StdArc::Weight Weight;
-  *correct = *substitutions = *insertions = *deletions = *num_words = 0;
-
-  // go through the first complete path in fst (there should be only one)
-  StateId src = fst.Start();
-  while (fst.Final(src)== Weight::Zero()) {  // while not final
-    for (fst::ArcIterator<fst::StdVectorFst> aiter(fst, src);
-         !aiter.Done(); aiter.Next()) {
-      fst::StdArc arc = aiter.Value();
-      if (arc.ilabel == arc.olabel && arc.ilabel != 0) {
-        (*correct)++;
-        (*num_words)++;
-      } else if (arc.ilabel == 0 && arc.olabel != 0) {
-        (*deletions)++;
-        (*num_words)++;
-      } else if (arc.ilabel != 0 && arc.olabel == 0) {
-        (*insertions)++;
-      } else if (arc.ilabel != 0 && arc.olabel != 0) {
-        (*substitutions)++;
-        (*num_words)++;
-      } else {
-        KALDI_ASSERT(arc.ilabel == 0 && arc.olabel == 0);
-      }
-      src = arc.nextstate;
-      continue;  // jump to next state
-    }
-  }
-}
 }
 
 int main(int argc, char *argv[]) {
