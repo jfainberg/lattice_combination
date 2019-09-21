@@ -5,7 +5,7 @@ This repository contains code for our Interspeech 2019 paper titled "[Lattice-Ba
 ## Installation
 This work requires a functioning install of [Kaldi](https://github.com/kaldi-asr/kaldi)
 
-1. Place `lattice-combine-light.cc` into `src/latbin/`
+1. Place `lattice-combine-light.cc` into `src/latbin/` (`lattice-combine-light-fst.cc` is optional and only required to produce the example figure on standard FSTs)
 2. Edit `src/latbin/Makefile` and add `lattice-combine-light` to the end of the `BINFILES`.
 3. Run `make`.
 
