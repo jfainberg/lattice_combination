@@ -3,8 +3,12 @@
 This repository contains code for our Interspeech 2019 paper titled "[Lattice-Based Lightly-Supervised Acoustic Model Training](https://www.isca-speech.org/archive/Interspeech_2019/pdfs/2533.pdf)". The goal is to create improved lattice supervision, and to make the best use of poor transcripts, by combining inaccurate transcripts with hypothesis lattices generated for semi-supervised training.
 
 ## Installation
-This work requires a functioning install of [Kaldi](https://github.com/kaldi-asr/kaldi)
+This work requires a functioning install of [Kaldi](https://github.com/kaldi-asr/kaldi).
 
+To install, either run `install.sh`, providing the Kaldi root directory:
+`bash install.sh /path/to/kaldi`
+
+or follow the equivalent steps below:
 1. Place `lattice-combine-light.cc` into `src/latbin/` (`lattice-combine-light-fst.cc` is optional and only required to produce the example figure on standard FSTs)
 2. Edit `src/latbin/Makefile` and add `lattice-combine-light` to the end of the `BINFILES`.
 3. Run `make`.
