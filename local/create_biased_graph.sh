@@ -33,7 +33,7 @@ data=$5
 oldgraph=$6
 newgraph=$7
 
-modeldir=`dirname $newgraph` # The model directory is asummed one level up from graph directory.
+modeldir=`dirname $newgraph` # The model directory is assumed one level up from graph directory.
 
 if [ ! -d $newgraph ]; then
     echo "$0: Biasing LM directory and graph to $data"
