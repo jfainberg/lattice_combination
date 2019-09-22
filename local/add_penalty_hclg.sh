@@ -39,12 +39,10 @@ if [ $stage -le 0 ]; then
 fi
 
 if [ $stage -le 1 ]; then
-    # Cleanup and copy other files
-    for f in disambig_tid.int  num_pdfs  phones.txt  words.txt; do
-        cp $graphdir/$f $dir/
+    # Cleanup and copy remaining files
+    for f in disambig_tid.int  num_pdfs  phones.txt  words.txt phones; do
+        cp -r $graphdir/$f $dir/
     done
-
-    cp -r $graphdir/phones $dir/
 
     rm $dir/HCLG.txt $dir/HCLG_penalized.txt
 fi
