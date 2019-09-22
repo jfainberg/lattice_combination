@@ -2,6 +2,8 @@
 # Copyright 2019    Joachim Fainberg
 # Apache 2.0.
 
+set -e
+
 # Create biased LM to some data
 
 stage=0
