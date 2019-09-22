@@ -33,10 +33,10 @@ data=$5
 oldgraph=$6
 newgraph=$7
 
+modeldir=`dirname $newgraph` # The model directory is asummed one level up from graph directory.
+
 if [ ! -d $newgraph ]; then
     echo "$0: Biasing LM directory and graph to $data"
-
-    modeldir= # one up from newgraphdir
 
     # Creates a new LM stored within $data
     local/create_biased_lm.sh --lambda $lambda --prefix $prefix $data $oldarpa
