@@ -20,7 +20,6 @@ cmd=run.pl
 decode_opts= # e.g. i-vectors
 latcomb_opts="" # passed to lattice-combine-light
 lexicon="data/local/dict/lexicon.txt"
-pen=0 # deletion penalty for semisup decoding graph
 lambda=0.7 # LM bias factor
 arpa="data/local/lm/mgb2015.full.3gm.kn.arpa.gz" # original LM
 hyp_beam=8
@@ -34,7 +33,7 @@ echo "$0 $@"  # Print the command line for logging
 
 if [ $# != 7 ]; then
    echo "Usage: $0 [opts] <lang-dir> <hires-data-dir> <lores-data-dir> <gmm-dir> <nnet-model-dir> <graph-dir> <output-dir>"
-   echo " e.g.: $0 data/lang_bias data/train_hires data/train exp/tri4 exp/chain/tdnn7p exp/chain/tdnn7p/graph_bias exp/chain/tdnn7p/combined_lats"
+   echo " e.g.: $0 data/lang_bias data/train_hires data/train exp/tri4 exp/chain/tdnn7p exp/chain/tdnn7p/graph_bias_pen-1 exp/chain/tdnn7p/combined_lats"
    echo ""
    echo "Uses a GMM-dir with lores feats to generate transcription lattices,"
    echo "and a seed nnet model with hires feats to generate hypothesis lattices."
@@ -73,16 +72,11 @@ if [ $stage -le 0 ]; then
     fi
 
     # Hypothesis lattices (hyp)
-    if ! [ -d ${graph_dir}_$pen ]; then
-      local/add_penalty_hclg.sh --penalty $pen \
-        ${graph_dir} ${graph_dir}_$pen
-    fi
-
     if [ ! -f $dir/lat.1.gz ]; then
         steps/nnet3/decode_semisup.sh $decode_opts --num-threads 1 --nj $nj \
                 --acwt 1.0 --post-decode-acwt 10.0 --write-compact true \
                 --skip-scoring true --word-determinize false \
-                ${graph_dir}_$pen $data $dir
+                ${graph_dir} $data $dir
     fi
 fi
 
