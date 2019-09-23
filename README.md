@@ -18,7 +18,7 @@ or follow the equivalent steps below:
 3. Run `make`.
 
 ## Usage
-The core algorithm is in `lattice-combine-light`. An example usage is included in `local/get_combined_lats.sh`. The output of this script can be supplied as lattices for training with chain models in Kaldi.
+The core algorithm is in `lattice-combine-light.cc`. An example usage is included in `local/get_combined_lats.sh`. The output of this script can be supplied as lattices for training with chain models in Kaldi.
 
 The remaining scripts are included to reproduce some experiments from the paper:
  - `local/create_biased_graph.sh` shows one way to bias an existing LM to the training data and generate a new graph.
