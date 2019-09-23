@@ -17,7 +17,7 @@ echo "$0 $@"  # Print the command line for logging
 
 if [ $# != 8 ]; then
    echo "Usage: local/create_biased_graph.sh <old-lang-dir> <old-lm-arpa> <old-graph-dir> <new-lang-dir> <new-lm-arpa> <new-graph-dir> <lexicon> <data-dir>"
-   echo " e.g.: local/create_biased_graph.sh data/lang data/local/lm/3gm.arpa.gz exp/tri4/graph data/lang_bias data/local/lm/3gm.bias.arpa.gz exp/tri4/graph_bias data/local/dict/lexicon data/train"
+   echo " e.g.: local/create_biased_graph.sh data/lang data/local/lm/3gm.arpa.gz exp/tri4/graph data/lang_bias data/local/lm/3gm.bias.arpa.gz exp/chain/tdnn/graph_bias data/local/dict/lexicon data/train"
    echo ""
    echo "main options (for others, see top of script file)"
    echo "  --config <config-file>     # config containing options"
