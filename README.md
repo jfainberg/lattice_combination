@@ -4,7 +4,7 @@ This repository contains code for our Interspeech 2019 paper titled "[Lattice-Ba
 
 The repository also contains a simple script to add deletion penalties (insertion rewards) to the HCLG, as well as a script to generate a biased n-gram LM.
 
-Finally we've included an example of the algorithm using (pyfst)[https://pyfst.github.io] in a Python notebook.
+Finally we've included an example of the algorithm using [pyfst](https://pyfst.github.io) in a Python notebook.
 
 Any questions or problems - please get in touch.
 
