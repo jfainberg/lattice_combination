@@ -28,6 +28,8 @@ The remaining scripts are included to reproduce some experiments from the paper:
  
 Graph directories resulting from the above scripts can be passed to `local/get_combined_lats.sh`.
 
+See also `lattice_combination_example.ipynb` for an example of how to run the algorithm in a Python notebook.
+
 ## Citation
 For research using this work, please cite:
 ```
