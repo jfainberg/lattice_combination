@@ -8,6 +8,8 @@ Finally we've included an example of the algorithm using [pyfst](https://pyfst.g
 
 Any questions or problems - please get in touch.
 
+This work is the result of a collaboration with my co-authors [Ondrej Klejch](http://www.ondrejklejch.cz), [Peter Bell](http://homepages.inf.ed.ac.uk/pbell1), and [Steve Renals](https://homepages.inf.ed.ac.uk/srenals).
+
 ## Installation
 This work requires a functioning install of [Kaldi](https://github.com/kaldi-asr/kaldi).
 
