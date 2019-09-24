@@ -22,7 +22,7 @@ latcomb_opts="" # passed to lattice-combine-light
 lexicon="data/local/dict/lexicon.txt"
 lambda=0.7 # LM bias factor
 arpa="data/local/lm/mgb2015.full.3gm.kn.arpa.gz" # original LM
-hyp_beam=8
+hyp_beam=30
 scale_opts='--transition-scale=1.0 --self-loop-scale=1.0'
 # End configuration.
 
