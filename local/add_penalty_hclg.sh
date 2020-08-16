@@ -35,7 +35,7 @@ if [ $stage -le 0 ]; then
     awk -v pen=$penalty '$4>0 { $5=$5+pen } {print $0}' $dir/HCLG.txt > $dir/HCLG_penalized.txt
 
     echo "$0: Compiling $dir/HCLG.fst"
-    fstcompile $dir/HCLG_penalized.txt $dir/HCLG.fst || exit 1
+    fstcompile $dir/HCLG_penalized.txt | fstconvert --fst_type=const > $dir/HCLG.fst || exit 1
 fi
 
 if [ $stage -le 1 ]; then
