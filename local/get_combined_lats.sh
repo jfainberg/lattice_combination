@@ -78,7 +78,7 @@ if [ $stage -le 0 ]; then
     fi
 fi
 
-ln -sf `pwd`/${data}_lo/lats $dir/lat_captions
+ln -sf `pwd`/${data_lo}/lats $dir/lat_captions
 
 # Combine and create training lats
 ref_rspecifier="gunzip -c $dir/lat_captions/lat.JOB.gz | lattice-copy --include=$data/utt2spk ark:- ark:- | lattice-1best ark:- ark:- | lattice-project ark:- ark:- |"
