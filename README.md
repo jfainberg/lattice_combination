@@ -1,4 +1,5 @@
 # Lattice-combination algorithm
+[![arXiv](https://img.shields.io/badge/arXiv-1905.13150-b31b1b.svg)](https://arxiv.org/abs/1905.13150)
 
 This repository contains code for our Interspeech 2019 paper titled "[Lattice-Based Lightly-Supervised Acoustic Model Training](https://www.isca-speech.org/archive/Interspeech_2019/pdfs/2533.pdf)". The goal is to create improved lattice supervision, and to make the best use of poor transcripts, by combining inaccurate transcripts with hypothesis lattices generated for semi-supervised training.
 
